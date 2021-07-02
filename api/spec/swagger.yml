@@ -1,0 +1,18 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Versioner
+  license:
+    name: MIT
+host: versioner.roeden.local
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  $ref: ./paths/index.yml
+definitions:
+  $ref: ./definitions/index.yml

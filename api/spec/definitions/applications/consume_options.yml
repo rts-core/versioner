@@ -1,0 +1,12 @@
+type: "object"
+required:
+  - major
+properties:
+  major:
+    type: string
+  minor:
+    type: string
+  patch:
+    type: string
+  postfix:
+    type: string
