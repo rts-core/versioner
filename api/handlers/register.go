@@ -1,9 +1,15 @@
 package handlers
 
-import "versioner/api/generated/restapi/operations"
+import (
+	"versioner/api/generated/restapi/operations"
+	"versioner/db/access"
+)
 
 func Register(
 	api *operations.VersionerAPI,
+	applicationAccessor access.ApplicationsAccessor,
 ) {
-	// todo: implement
+	// Applications
+	api.ApplicationsConsumeVersionHandler = NewConsumeVersionHandler(applicationAccessor)
+	api.ApplicationsGetVersionHandler = NewGetVersionHandler(applicationAccessor)
 }

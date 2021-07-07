@@ -21,13 +21,15 @@ type ConsumeOptions struct {
 
 	// major
 	// Required: true
-	Major *string `json:"major"`
+	Major *int32 `json:"major"`
 
 	// minor
-	Minor string `json:"minor,omitempty"`
+	// Required: true
+	Minor *int32 `json:"minor"`
 
 	// patch
-	Patch string `json:"patch,omitempty"`
+	// Required: true
+	Patch *int32 `json:"patch"`
 
 	// postfix
 	Postfix string `json:"postfix,omitempty"`
@@ -41,6 +43,14 @@ func (m *ConsumeOptions) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMinor(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePatch(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -50,6 +60,24 @@ func (m *ConsumeOptions) Validate(formats strfmt.Registry) error {
 func (m *ConsumeOptions) validateMajor(formats strfmt.Registry) error {
 
 	if err := validate.Required("major", "body", m.Major); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConsumeOptions) validateMinor(formats strfmt.Registry) error {
+
+	if err := validate.Required("minor", "body", m.Minor); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConsumeOptions) validatePatch(formats strfmt.Registry) error {
+
+	if err := validate.Required("patch", "body", m.Patch); err != nil {
 		return err
 	}
 

@@ -61,6 +61,9 @@ func init() {
               "$ref": "#/definitions/ApplicationVersion"
             }
           },
+          "404": {
+            "description": "No version on record"
+          },
           "default": {
             "description": "Unexpected Error",
             "schema": {
@@ -125,17 +128,22 @@ func init() {
     "ConsumeOptions": {
       "type": "object",
       "required": [
-        "major"
+        "major",
+        "minor",
+        "patch"
       ],
       "properties": {
         "major": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "minor": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "patch": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "postfix": {
           "type": "string"
@@ -204,6 +212,9 @@ func init() {
               "$ref": "#/definitions/ApplicationVersion"
             }
           },
+          "404": {
+            "description": "No version on record"
+          },
           "default": {
             "description": "Unexpected Error",
             "schema": {
@@ -268,17 +279,22 @@ func init() {
     "ConsumeOptions": {
       "type": "object",
       "required": [
-        "major"
+        "major",
+        "minor",
+        "patch"
       ],
       "properties": {
         "major": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "minor": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "patch": {
-          "type": "string"
+          "type": "integer",
+          "format": "int32"
         },
         "postfix": {
           "type": "string"

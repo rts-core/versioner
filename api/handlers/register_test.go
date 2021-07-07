@@ -18,7 +18,7 @@ type RegisterSuite struct {
 func (suite *RegisterSuite) TestRegister_Called_AllHandlersRegistered() {
 	api := &operations.VersionerAPI{}
 
-	handlers.Register(api)
+	handlers.Register(api, nil)
 
 	reflection := reflect.ValueOf(api).Elem()
 	typeOfT := reflection.Type()

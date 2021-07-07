@@ -12,7 +12,9 @@ responses:
   "200":
     description: Current Version Number
     schema:
-      $ref: ../../definitions/applications/application_version.yml
+      $ref: ../../definitions/applications/application_version.yml      
+  "404":
+    description: No version on record
   default:
     description: Unexpected Error
     schema:

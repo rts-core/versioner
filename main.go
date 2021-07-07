@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"time"
 	"versioner/api"
+	accessors "versioner/db/access/mongo"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -14,7 +15,11 @@ import (
 
 func main() {
 	// Connect to Mongo
-	client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_CLIENT_URL")))
+	credential := options.Credential{
+		Username: os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASS"),
+	}
+	client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_CLIENT_URL")).SetAuth(credential))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -32,7 +37,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = api.Listen(port)
+	// Accessors
+	applicationAccessor := accessors.NewMongoApplicationsAccessor(client.Database(os.Getenv("DB_NAME")).Collection(os.Getenv("COLLECTION_NAME")))
+
+	err = api.Listen(port, applicationAccessor)
 	if err != nil {
 		log.Fatal(err)
 	}

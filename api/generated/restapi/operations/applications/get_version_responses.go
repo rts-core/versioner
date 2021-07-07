@@ -57,6 +57,30 @@ func (o *GetVersionOK) WriteResponse(rw http.ResponseWriter, producer runtime.Pr
 	}
 }
 
+// GetVersionNotFoundCode is the HTTP code returned for type GetVersionNotFound
+const GetVersionNotFoundCode int = 404
+
+/*GetVersionNotFound No version on record
+
+swagger:response getVersionNotFound
+*/
+type GetVersionNotFound struct {
+}
+
+// NewGetVersionNotFound creates GetVersionNotFound with default headers values
+func NewGetVersionNotFound() *GetVersionNotFound {
+
+	return &GetVersionNotFound{}
+}
+
+// WriteResponse to the client
+func (o *GetVersionNotFound) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+
+	rw.Header().Del(runtime.HeaderContentType) //Remove Content-Type on empty responses
+
+	rw.WriteHeader(404)
+}
+
 /*GetVersionDefault Unexpected Error
 
 swagger:response getVersionDefault

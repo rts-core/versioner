@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
-        "mongodb"
+        "bson",
+        "mongodb",
+        "versioner"
     ]
 }

@@ -1,12 +1,17 @@
 type: "object"
 required:
   - major
+  - minor
+  - patch
 properties:
   major:
-    type: string
+    type: integer
+    format: int32
   minor:
-    type: string
+    type: integer
+    format: int32
   patch:
-    type: string
+    type: integer
+    format: int32
   postfix:
     type: string
