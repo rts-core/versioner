@@ -51,9 +51,22 @@ func (a *MongoApplicationsAccessor) GetApplicationVersion(id string) (models.App
 // UpdateApplicationVersion updates an application version
 func (a *MongoApplicationsAccessor) UpdateApplicationVersion(version models.ApplicationVersion) error {
 	filter := bson.D{{Key: "id", Value: version.ID}}
-	_, err := a.collection.ReplaceOne(context.Background(), filter, version)
+	exists, err := a.ApplicationVersionExists(version.ID)
 	if err != nil {
 		return err
+	}
+
+	if !exists {
+		_, err := a.collection.InsertOne(context.Background(), version)
+		if err != nil {
+			return err
+		}
+
+	} else {
+		_, err = a.collection.ReplaceOne(context.Background(), filter, version)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
