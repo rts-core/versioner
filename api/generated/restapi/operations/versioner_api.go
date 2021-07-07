@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"versioner/api/generated/restapi/operations/applications"
+	"github.com/rts-core/versioner/api/generated/restapi/operations/applications"
 )
 
 // NewVersionerAPI creates a new Versioner instance

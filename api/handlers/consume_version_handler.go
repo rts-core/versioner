@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"versioner/api/generated/models"
-	"versioner/api/generated/restapi/operations/applications"
-	"versioner/db/access"
-	dbModels "versioner/db/models"
+	"github.com/rts-core/versioner/api/generated/models"
+	"github.com/rts-core/versioner/api/generated/restapi/operations/applications"
+	"github.com/rts-core/versioner/db/access"
+	dbModels "github.com/rts-core/versioner/db/models"
 
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/swag"

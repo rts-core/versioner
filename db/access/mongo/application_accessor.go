@@ -2,7 +2,8 @@ package mongo
 
 import (
 	"context"
-	"versioner/db/models"
+
+	"github.com/rts-core/versioner/db/models"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

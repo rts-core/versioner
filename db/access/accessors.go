@@ -1,6 +1,6 @@
 package access
 
-import "versioner/db/models"
+import "github.com/rts-core/versioner/db/models"
 
 // ApplicationsAccessor is the access interface for Application data
 type ApplicationsAccessor interface {

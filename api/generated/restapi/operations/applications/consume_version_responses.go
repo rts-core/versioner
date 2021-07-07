@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"versioner/api/generated/models"
+	"github.com/rts-core/versioner/api/generated/models"
 )
 
 // ConsumeVersionOKCode is the HTTP code returned for type ConsumeVersionOK

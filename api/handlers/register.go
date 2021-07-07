@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"versioner/api/generated/restapi/operations"
-	"versioner/db/access"
+	"github.com/rts-core/versioner/api/generated/restapi/operations"
+	"github.com/rts-core/versioner/db/access"
 )
 
 func Register(

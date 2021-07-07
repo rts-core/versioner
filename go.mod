@@ -1,4 +1,4 @@
-module versioner
+module github.com/rts-core/versioner
 
 go 1.16
 

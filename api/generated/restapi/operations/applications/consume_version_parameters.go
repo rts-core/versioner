@@ -16,7 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/validate"
 
-	"versioner/api/generated/models"
+	"github.com/rts-core/versioner/api/generated/models"
 )
 
 // NewConsumeVersionParams creates a new ConsumeVersionParams object

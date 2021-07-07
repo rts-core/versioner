@@ -11,8 +11,8 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/rs/cors"
 
-	"versioner/api/generated/restapi/operations"
-	"versioner/api/generated/restapi/operations/applications"
+	"github.com/rts-core/versioner/api/generated/restapi/operations"
+	"github.com/rts-core/versioner/api/generated/restapi/operations/applications"
 )
 
 //go:generate swagger generate server --target ..\..\generated --name Versioner --spec ..\..\spec\generated.yml --principal interface{} --exclude-main

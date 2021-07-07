@@ -6,8 +6,9 @@ import (
 	"os"
 	"strconv"
 	"time"
-	"versioner/api"
-	accessors "versioner/db/access/mongo"
+
+	"github.com/rts-core/versioner/api"
+	accessors "github.com/rts-core/versioner/db/access/mongo"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

@@ -4,8 +4,9 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-	"versioner/api/generated/restapi/operations"
-	"versioner/api/handlers"
+
+	"github.com/rts-core/versioner/api/generated/restapi/operations"
+	"github.com/rts-core/versioner/api/handlers"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

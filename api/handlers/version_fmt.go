@@ -2,7 +2,8 @@ package handlers
 
 import (
 	"fmt"
-	"versioner/db/models"
+
+	"github.com/rts-core/versioner/db/models"
 )
 
 func formatVersion(version models.ApplicationVersion) string {
