@@ -94,7 +94,7 @@ env:
   - name: COLLECTION_NAME
     value: versions
   - name: HOST_PORT
-    value: 2930
+    value: "2930"
 
 affinity: {}
 
