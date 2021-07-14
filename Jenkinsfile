@@ -1,5 +1,5 @@
 podTemplate(cloud: 'kubernetes', containers: [
-    containerTemplate(name: 'golang', image: 'golang:1.17', ttyEnabled: true, command: 'cat'),
+    containerTemplate(name: 'golang', image: 'golang:1.16', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'docker', image: 'docker:20.10', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'helm', image: 'dtzar/helm-kubectl:3.6.0', ttyEnabled: true, command: 'cat'),
     ],
