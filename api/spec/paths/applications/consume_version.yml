@@ -1,0 +1,25 @@
+summary: Increment and Return Version
+operationId: consumeVersion
+tags:
+  - Applications
+parameters:
+  - name: applicationId
+    in: path
+    required: true
+    description: The ID of the application.
+    type: string
+  - name: options
+    in: body
+    required: true
+    description: Options for new version generation
+    schema:
+      $ref: ../../definitions/applications/consume_options.yml
+responses:
+  "200":
+    description: New Version Number
+    schema:
+      $ref: ../../definitions/applications/application_version.yml
+  default:
+    description: Unexpected Error
+    schema:
+      $ref: ../../definitions/default/default_error.yml

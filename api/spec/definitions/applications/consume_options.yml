@@ -1,0 +1,17 @@
+type: "object"
+required:
+  - major
+  - minor
+  - patch
+properties:
+  major:
+    type: integer
+    format: int32
+  minor:
+    type: integer
+    format: int32
+  patch:
+    type: integer
+    format: int32
+  postfix:
+    type: string

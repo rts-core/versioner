@@ -1,0 +1,9 @@
+# Default Definitions
+DefaultError:
+  $ref: ./default/default_error.yml
+
+# Application Definitions
+ConsumeOptions:
+  $ref: ./applications/consume_options.yml
+ApplicationVersion:
+  $ref: ./applications/application_version.yml

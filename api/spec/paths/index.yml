@@ -1,0 +1,6 @@
+# Application Paths
+/applications/{applicationId}:
+  put:
+    $ref: ./applications/consume_version.yml
+  get:
+    $ref: ./applications/get_version.yml
