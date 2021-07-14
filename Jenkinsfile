@@ -7,15 +7,21 @@ podTemplate(cloud: 'kubernetes', containers: [
         hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')
     ]) {
     node(POD_LABEL) {
-        def myRepo = checkout scm
-        def gitCommit = myRepo.GIT_COMMIT
-        def gitBranch = myRepo.GIT_BRANCH
-        def shortGitCommit = "${gitCommit[0..10]}"
-        def previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
-        def versionFile = readFile("${env.WORKSPACE}/version.txt")
-        def version = versionFile.replaceAll('build_number', "${BUILD_NUMBER}")
-        def strippedVersion = versionFile.replaceAll('-build_number', "")
-        def versionValues = strippedVersion.split('\\.')
+        checkout scm
+        def applicationName = "rts-core/versioner"
+        def major = 1
+        def minor = 1
+        def patch = 0
+        def version = 'Unknown'
+        stage('Get Version') {
+            container('nix') {
+                stage('Get Version for Build') {
+                    version = sh(returnStdout: true, script: "curl -X PUT -H 'Content-Type: application/json' -d '{\"major\":${major}, \"minor\":${minor}, \"patch\":${patch}}' versioner.roeden.local/v1/applications/${java.net.URLEncoder.encode(applicationName, "UTF-8")} | jq -r '.version'").trim()
+                }
+            }
+        }
+
+        def versionValues = version.split('\\.')
         echo "Build: ${version}"
  
         stage('Test Stage') {
