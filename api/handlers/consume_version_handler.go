@@ -40,7 +40,15 @@ func NewConsumeVersionHandler(applicationAccessor access.ApplicationsAccessor) a
 			}
 		}
 
-		doc.Build++
+		if *params.Options.Major > doc.Major || *params.Options.Minor > doc.Minor || *params.Options.Patch > doc.Patch {
+			doc.Major = *params.Options.Major
+			doc.Minor = *params.Options.Minor
+			doc.Patch = *params.Options.Patch
+			doc.Build = 0
+		} else {
+			doc.Build++
+		}
+
 		err = applicationAccessor.UpdateApplicationVersion(doc)
 		if err != nil {
 			return applications.NewConsumeVersionDefault(500).WithPayload(&models.DefaultError{
